@@ -1,0 +1,38 @@
+1) pip install requests
+import requests
+
+# Replace these with your actual FYERS API credentials
+CLIENT_ID = 'your_client_id'
+CLIENT_SECRET = 'your_client_secret'
+USERNAME = 'your_fyers_username'
+PASSWORD = 'your_fyers_password'
+
+# FYERS API base URL
+BASE_URL = 'https://api.fyers.in/api/v1/'
+
+# Endpoint for authentication
+AUTH_URL = BASE_URL + 'auth/token'
+
+# Request data for login
+data = {
+    'client_id': CLIENT_ID,
+    'secret_key': CLIENT_SECRET,
+    'grant_type': 'password',
+    'username': USERNAME,
+    'password': PASSWORD
+}
+
+# Send POST request to get the access token
+response = requests.post(AUTH_URL, data=data)
+
+# Check if the request was successful
+if response.status_code == 200:
+    access_token = response.json()['access_token']
+    print("Login Successful. Access Token:", access_token)
+else:
+    print("Login Failed. Status Code:", response.status_code)
+    print("Error Message:", response.json()['message'])
+2) To imstallthe latest version of Python Go on the sight  https://www.python.org/ 
+then gp to the download section Download the latest version of Python you cna also add python X.X to path it can make it easy
+should see the installed Python version displayed. This confirms that Python is successfully installed.
+2-i) Visit the official IntelliJ IDEA website: https://www.jetbrains.com/idea/ download the free version after intallation launch intellji
